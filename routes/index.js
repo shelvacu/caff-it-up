@@ -10,5 +10,4 @@ module.exports = function(app) {
 			seq: ["henry", "is", "pretty", "great"]
 		});
 	});
-
 };
