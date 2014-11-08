@@ -1,0 +1,17 @@
+{
+    "Coca Cola": {
+        "Tags": ["coca", "cola", "coke"],
+        "Caffeine": "34 mg/12 fl oz",
+        "Image": "coke-small.png"
+    },
+    "Mnt Dew": {
+        "Tags": ["mountain", "mnt", "dew"],
+        "Caffeine": "54 mg/12 fl oz",
+        "Image": "no-image.png"
+    },
+    "Dr Pepper": {
+        "Tags": ["dr", "dr.", "pepper"],
+        "Caffeine": "41 mg/12 fl oz",
+        "Image": "no-image.png"
+    }
+}

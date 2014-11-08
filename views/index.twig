@@ -5,9 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name=viewport content="width=device-width, initial-scale=1">
 	<title>{{title}}</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="all">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css" media="all">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic" type="text/css" media="all">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic" type="text/css" media="all">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $.ajax({
+            url: '/assets/data/drinks.json',
+            dataType :"json",
+            success: function(data){
+                var text = '';
+                $.each(data, function(idx, entry){
+                    console.log(idx);
+                    console.log(entry["Image"]);
+                    text += '<p><img src = "/assets/images/drinks/' + entry["Image"] +'"/>' + idx + '</p>'
+                });
+                
+                document.getElementById('drinks-selector-content').innerHTML = text;
+            },
+            error : function(httpReq,status,exception){
+                console.log(status + " " + exception);
+            }
+        });
+    });
+    </script>
 </head>
 <body>
     <header>
@@ -15,6 +37,21 @@
             <h1 id="site-title">{{title}}</h1>
         </div>
     </header>
+    <div id="drinks-selector" style="display: none;">
+        <div id="drinks-selector-inner">
+            <div id="drinks-selector-title">
+                <span>Select Drinks</span>
+                <i class="fa fa-times" onclick="document.getElementById('drinks-selector').style.display = 'none';"></i>
+            </div>
+            <div id="drinks-selector-content">
+                Test
+            </div>
+            <div id="drinks-selector-options">
+                <input type="button" value="Finish" onclick="document.getElementById('drinks-selector').style.display = 'none';" />
+                <input type="button" value="Cancel" onclick="document.getElementById('drinks-selector').style.display = 'none';" />
+            </div>
+        </div>
+    </div>
     <div id="main">
         <div class="wrapper">
             <div id="main-panel" class="clearfix">
@@ -26,7 +63,7 @@
                         </div>
                         
                         <div class="field">
-                            <label for="weight">Your weight:</label>
+                            <label for="weight">Your weight (kg):</label>
                             <input id="weight" name="weight" type="number" />
                         </div>
                         
@@ -35,21 +72,12 @@
                             <input id="hours" name="hours" type="number" step="0.5" />
                         </div>
                         
-                        Drinks
+                        <input onclick="document.getElementById('drinks-selector').style.display = 'block';" type="button" value="Choose your drinks" >
                     </form>
                 </div>
                 <div id="main-panel-right">
                 </div>
             </div>
-            
-            <p>
-                {{body}}
-            </p>
-            <ul>
-            {% for item in seq %}
-                <li>{{item}}</li>
-            {% endfor %}
-            </ul>
         </div>
     </div>
     <footer>
