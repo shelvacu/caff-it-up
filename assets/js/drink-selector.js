@@ -109,11 +109,10 @@ function updateSelectedDrinks(selector, selected_selector) {
                     <div class="selected-drink-info"> \
                         <div class="selected-drink-name">'+drink_name+'</div> \
                         <div class="selected-drink-caff">'+drink_caff+' mg/12 fl oz</div> \
-                        <div class="selected-drink-amount"> \
-                            <div class="selected-drink-amount-label">Amount:</div> \
-                            <input class="selected-drink-amount-input" value="1" min="1" type="number" pattern="\d*" /> \
+                        <div class="selected-drink-hours"> \
+                            <div class="selected-drink-hours-label">Hours ago:</div> \
+                            <input class="selected-drink-hours-input" min="0" type="number" /> \
                         </div> \
-                        <input class="selected-drink-hours-input"  min="0" type="number" /> \
                     </div> \
                     <div onclick="removeSelectedDrink(\''+selector+'\', '+drink_id+', $(this).closest(\'.selected-drink\'));" class="selected-drink-remove" title="Remove this selected drink"><i class="fa fa-times"></i></div> \
                 </div> \

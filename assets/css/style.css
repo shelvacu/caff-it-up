@@ -479,14 +479,14 @@ nav .item.active {
     content: '';
     display: table;
 }
-.selected-drink-amount:after {
+.selected-drink-hours:after {
     clear: both;
 }
-.selected-drink-amount-label {
+.selected-drink-hours-label {
     float: left;
     padding-right: 10px;
 }
-.selected-drink-amount-input {
+.selected-drink-hours-input {
     border: 1px solid #d9d9d9;
     padding: 4px 6px;
     cursor: text;
