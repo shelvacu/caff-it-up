@@ -17,7 +17,7 @@ $(document).ready(function(){
             var text = '';
             $.each(data, function(key, entry){
                 text +=
-                    '<div class="drink" data-tags="'+entry['Tags']+'" onclick="$(this).toggleClass(\'active\')"> \
+                    '<div class="drink" data-name="'+key+'" data-image="'+entry["Image"]+'" data-caff="'+entry["Caffeine"]+'" data-tags="'+entry['Tags']+'" onclick="$(this).toggleClass(\'active\')"> \
                         <div class="drink-name">'+key+'</div> \
                         <img class="drink-image" src = "/assets/images/drinks/' + entry["Image"] +'" alt=""/> \
                         <div class="drink-caff">'+entry["Caffeine"]+' mg/12 fl oz</div> \
@@ -54,7 +54,38 @@ $(document).ready(function(){
         });
     });
 });
+
+function openDrinkSelector() {
+    $('#drinks-selector').show();
+    $('.drink[active]').addClass('active');
+}
+
+function cancelDrinkSelector() {
+    $('#drinks-selector').hide();
+    $('.drink.active').removeClass('active');
+}
+
 function updateSelectedDrinks() {
+    $('#selected-drinks').html('');
     $('.drink.active').each(function() {
+        $(this).attr('active', '');
+        var drink_image = $(this).attr('data-image');
+        var drink_caff = $(this).attr('data-caff');
+        var drink_name = $(this).attr('data-name');
+        
+        $('#selected-drinks').append(
+            '<div class="selected-drink"> \
+                <div class="selected-drink-image-wrapper"> \
+                    <img class="selected-drink-image" src="/assets/images/drinks/'+drink_image+'" alt="" /> \
+                </div> \
+                <div class="selected-drink-info"> \
+                    <div class="selected-drink-name">'+drink_name+'</div> \
+                    <div class="selected-drink-caff">'+drink_caff+' mg/12 fl oz</div> \
+                </div> \
+            </div>'
+        );
+    });
+    $('.drink:not(.active)').each(function() {
+        $(this).removeAttr('active');
     });
 }

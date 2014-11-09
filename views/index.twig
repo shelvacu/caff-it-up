@@ -21,7 +21,7 @@
         <div id="drinks-selector-inner">
             <div id="drinks-selector-title">
                 <span>Select Drinks</span>
-                <i class="fa fa-times" onclick="document.getElementById('drinks-selector').style.display = 'none';"></i>
+                <i class="fa fa-times" onclick="cancelDrinkSelector()"></i>
             </div>
             <div id="drinks-selector-content">
                 <input id="drinks-search" type="text" placeholder="Search for a drink" />
@@ -30,7 +30,7 @@
             </div>
             <div id="drinks-selector-options">
                 <input type="button" value="Finish" onclick="updateSelectedDrinks();document.getElementById('drinks-selector').style.display = 'none';" />
-                <input type="button" value="Cancel" onclick="document.getElementById('drinks-selector').style.display = 'none';" />
+                <input type="button" value="Cancel" onclick="cancelDrinkSelector()" />
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
                             <input id="hours" name="hours" type="number" step="0.5" />
                         </div>
                         
-                        <input onclick="document.getElementById('drinks-selector').style.display = 'block';" type="button" value="Choose your drinks" />
+                        <input onclick="openDrinkSelector();" type="button" value="Choose your drinks" />
                         
                         <div id="selected-drinks">
                         </div>
