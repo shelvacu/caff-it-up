@@ -149,6 +149,21 @@ header {
     min-width: 200px;
 }
 
+@media (max-width: 600px) {
+    #main-panel-left {
+        float: none;
+        width: 100%;
+        padding: 0 5px;
+        border-right: 0;
+    }
+
+    #main-panel-right {
+        float: none;
+        width: 100%;
+        padding: 0 5px;
+    }
+}
+
 /*-------------------------
 	Drinks Selector
 --------------------------*/
@@ -240,7 +255,7 @@ header {
 .drink {
     float: left;
     width: 33%;
-    height: 218px;
+    height: 160px;
     border: 1px solid #e3e3e3;
     position: relative;
     padding-bottom: 20px;
@@ -257,6 +272,7 @@ header {
     display: block;
     max-height: 150px;
     margin: 0 auto;
+    margin-top: 10px;
 }
 .drink-caff {
     display: block;

@@ -19,9 +19,9 @@ $(document).ready(function(){
             $.each(data, function(key, entry){
                 text +=
                     '<div class="drink" data-id="'+idx+'" data-name="'+key+'" data-image="'+entry["Image"]+'" data-caff="'+entry["Caffeine"]+'" data-tags="'+entry['Tags']+'" onclick="$(this).toggleClass(\'active\')"> \
-                        <div class="drink-name">'+key+'</div> \
+                        <!--<div class="drink-name">'+key+'</div>--> \
                         <img class="drink-image" src = "/assets/images/drinks/' + entry["Image"] +'" alt=""/> \
-                        <div class="drink-caff">'+entry["Caffeine"]+' mg/12 fl oz</div> \
+                        <!--<div class="drink-caff">'+entry["Caffeine"]+' mg/12 fl oz</div>--> \
                         <div class="drink-notactive-msg"> \
                             Click to select \
                         </div> \
