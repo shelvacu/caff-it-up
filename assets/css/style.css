@@ -156,9 +156,22 @@ header {
 
 #main-panel-left {
     float: left;
-    width: 50%;
+    width: 60%;
     box-sizing: border-box;
     padding-right: 10px;
+}
+
+#consumed-drinks-column {
+    float: left;
+    width: 50%;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+#available-drinks-column {
+    float: left;
+    width: 50%;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 
 #data-input-area {
@@ -169,7 +182,7 @@ header {
 
 #main-panel-right {
     float: left;
-    width: 50%;
+    width: 40%;
     box-sizing: border-box;
     padding-left: 10px;
 }
@@ -256,7 +269,7 @@ nav .item.active {
 	Drinks Selector
 --------------------------*/
 
-#drinks-selector {
+.drinks-selector {
     z-index: 100000;
     position: fixed;
     top: 0;
@@ -266,7 +279,7 @@ nav .item.active {
     background: rgba(0,0,0,0.4);
     display: none;
 }
-#drinks-selector-inner {
+.drinks-selector-inner {
     background: white;
     /*position: fixed;
     top: 0;
@@ -281,7 +294,7 @@ nav .item.active {
     -moz-box-shadow: 0 1px 8px rgba(0,0,0,.2);
 }
 
-#drinks-selector-title {
+.drinks-selector-title {
     padding: 6px 10px;
     border-bottom: 1px solid #e1e8ed;
     text-align: center;
@@ -290,7 +303,7 @@ nav .item.active {
     position: relative;
 }
 
-#drinks-selector-title .fa-times {
+.drinks-selector-title .fa-times {
     position: absolute;
     top: 0;
     right: 0;
@@ -300,7 +313,7 @@ nav .item.active {
     cursor: pointer;
 }
 
-#drinks-selector-content {
+.drinks-selector-content {
     padding: 20px;
     padding-bottom: 20px;
     min-height: 200px;
@@ -308,13 +321,13 @@ nav .item.active {
     overflow-y: auto;
 }
 
-#drinks-selector-options {
+.drinks-selector-options {
 	/* background: #E6ECF1; */
     padding: 15px 20px;
     border-top: 1px solid #e1e8ed;
 }
 
-#drinks-selector input[type=button], #drinks-selector input[type=submit] {
+.drinks-selector input[type=button], .drinks-selector input[type=submit] {
 	background: white;
 	padding: 7px 18px;
     border: 1px solid #e1e8ed;
@@ -323,11 +336,11 @@ nav .item.active {
 	font-size: 14px;
     transition: background .2ms ease;
 }
-#drinks-selector input[type=button]:hover, #drinks-selector input[type=submit]:hover {
+.drinks-selector input[type=button]:hover, .drinks-selector input[type=submit]:hover {
 	background: #e1e8ed;
 }
 
-#drinks-selector input[type=text], #drinks-selector input[type=number] {
+.drinks-selector input[type=text], .drinks-selector input[type=number] {
     border: 1px solid #e1e8ed;
     padding: 4px 10px;
     font-size: 17px;
@@ -335,7 +348,7 @@ nav .item.active {
     box-sizing: border-box;
 }
 
-#drinks-search {
+.drinks-search {
     border-bottom: 1px solid #e3e3e3;
 }
 
@@ -508,6 +521,7 @@ nav .item.active {
     background: white;
     padding: 20px;
     box-sizing: border-box;
+    height: 84px;
 }
 
 .result-item:not(:first-child) {

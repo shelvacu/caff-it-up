@@ -1,34 +1,38 @@
 // Input: object with various params, eg
-// {age:17,weightLbs:150,drinkSizemg:54,hours:4}
-// Required: age, weightLbs, drinkSizemg, hours
+// {age:17,weightLbs:150,drinkSizemg:54,hours:4,doseTimeHrs:2}
+// Required: age, weightLbs, drinkSizemg, hours, doseTimeHrs (time since first dose)
 //
 // Output: Array of times and milligrams, eg
 // [[Date, 55],[Date, 55]]
 function inputToConsumption(params){ 
-    var start = new Date()
-    var res = [[start, 34]] // 34 - One coke
-    
+    var start = new Date();
+    var result = [];
     var w = params.weightLbs;
-    var Ao = params.drinkSizemg;
-    var A = 20;
-    console.log('A: ' + t);
-    console.log('Ao: ' + Ao);
     
-    var t = (Math.log( (A * (11.76 - 0.162))/(11.76 * Ao) ))/(Math.log( Math.pow(Math.E, -0.162)-Math.pow(Math.E, -11.76) )) //next dose, in hours.
-    // var t = ((280-w)/26)*(( Math.log(20/Ao) )/(-Math.log(2))); Older equation
+    var initT = params.doseTimeHrs;
+    var Ao = (11.76 * params.drinkSizemg * (Math.pow(Math.E, -0.162 * initT) - Math.pow(Math.E, -11.76 * initT) ))/(11.76-0.162); // Current amount
+    var A = ((w * 0.453592) * 2); // lower bound: 2-3 mg per kg for an observable effect
     
-    if (t < 0) {
-        console.log('inputToConsumption error: t < 0; t=' + t);
-        return null;
+    if (Ao < A) { // if current amount < lower bound, make greater
+        result.push([start, Math.round((A-Ao) * 10) / 10]);
     }
+    Ao = A;
     
-    var end = new Date();
-    end.setTime(start.getTime());
-    while(end.getTime() < (start.getTime()+(params.hours*60*60*1000))) {
-        end.setTime(end.getTime()+(t*60*60*1000));
-        var date = new Date();
-        date.setTime(end.getTime());
-        res.push([date,34]);
+    console.log("Ao: " + Ao);
+    console.log("A: " + A);
+    
+    var timeIdx = new Date(start.getTime());
+    while(timeIdx.getTime() < (start.getTime()+(params.hours*60*60*1000))) {
+        var t = (Math.log( (A * (11.76 - 0.162))/(11.76 * Ao) ))/
+            (Math.log( Math.pow(Math.E, -0.162)-Math.pow(Math.E, -11.76) )); // next dose time (ms)
+        
+        if (t < 0) { console.log('inputToConsumption error: t < 0; t=' + t); return null; }
+        Ao = A + 35;
+        
+        timeIdx.setTime(timeIdx.getTime()+(t*60*60*1000));
+        
+        var date = new Date(timeIdx.getTime());
+        result.push([date,34]);
     }
-    return res;
+    return result;
 }

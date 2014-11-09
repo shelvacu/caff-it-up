@@ -45,15 +45,15 @@ $(document).ready(function(){
             console.log(status + " " + exception);
         }
     });*/
-    $('#drinks-data').html(loaded_drink_data);
-    $('#drinks-search').keyup(function () {
-        if ($('#drinks-search').val().length == 0) {
+    $('.drinks-data').html(loaded_drink_data);
+    $('.drinks-search').keyup(function () {
+        if ($(this).val().length == 0) {
             $('.drink').show();
             return;
         }
         
-        var search_tags = $('#drinks-search').val().split(' ');
-        $('.drink').each(function() {
+        var search_tags = $(this).val().split(' ');
+        $(this).closest('.drinks-selector').find('.drink').each(function() {
             var drink_tags = $(this).attr("data-tags");
             if (drinkFilter(search_tags, drink_tags)) {
                 $(this).show();
@@ -64,18 +64,18 @@ $(document).ready(function(){
     });
 });
 
-function openDrinkSelector() {
-    $('#drinks-selector').show();
-    $('.drink[active]').addClass('active');
+function openDrinkSelector(selector) {
+    $(selector).show();
+    $(selector).find('.drink[active]').addClass('active');
 }
 
-function cancelDrinkSelector() {
-    $('#drinks-selector').hide();
-    $('.drink.active').removeClass('active');
+function cancelDrinkSelector(selector) {
+    $(selector).hide();
+    $(selector).find('.drink.active').removeClass('active');
 }
 
-function removeSelectedDrink(drink_id, $selected_drink) {
-    $('.drink[data-id='+drink_id+']').removeAttr('active').removeClass('active');
+function removeSelectedDrink(selector, drink_id, $selected_drink) {
+    $(selector).find('.drink[data-id='+drink_id+']').removeAttr('active').removeClass('active');
     
     $selected_drink.find('.selected-drink-inner').animate({
         "margin-left": "-25px",
@@ -91,16 +91,16 @@ function removeSelectedDrink(drink_id, $selected_drink) {
     }, 150);
 }
 
-function updateSelectedDrinks() {
-    $('#selected-drinks').html('');
-    $('.drink.active').each(function() {
+function updateSelectedDrinks(selector, selected_selector) {
+    $(selected_selector).html('');
+    $(selector).find('.drink.active').each(function() {
         $(this).attr('active', '');
         var drink_image = $(this).attr('data-image');
         var drink_caff = $(this).attr('data-caff');
         var drink_name = $(this).attr('data-name');
         var drink_id = $(this).attr('data-id');
         
-        $('#selected-drinks').append(
+        $(selected_selector).append(
             '<div class="selected-drink" data-name="'+drink_name+'" data-caff="'+drink_caff+'"> \
                 <div class="selected-drink-inner"> \
                     <div class="selected-drink-image-wrapper"> \
@@ -114,12 +114,12 @@ function updateSelectedDrinks() {
                             <input class="selected-drink-amount-input" value="1" min="1" type="number" pattern="\d*" /> \
                         </div> \
                     </div> \
-                    <div onclick="removeSelectedDrink('+drink_id+', $(this).closest(\'.selected-drink\'));" class="selected-drink-remove" title="Remove this selected drink"><i class="fa fa-times"></i></div> \
+                    <div onclick="removeSelectedDrink(\''+selector+'\', '+drink_id+', $(this).closest(\'.selected-drink\'));" class="selected-drink-remove" title="Remove this selected drink"><i class="fa fa-times"></i></div> \
                 </div> \
             </div>'
         );
     });
-    $('.drink:not(.active)').each(function() {
+    $(selector).find('.drink:not(.active)').each(function() {
         $(this).removeAttr('active');
     });
 }
