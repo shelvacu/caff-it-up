@@ -26,26 +26,47 @@
             <a href="index.html" class="item active">Home</a>
             <a href="about.html" class="item">About</a>
             <a href="safety.html" class="item">Safety</a>
-            <a href="api.html" class="item">API</a>
         </div>
     </nav>
-    <div id="drinks-selector" style="display: none;">
-        <div id="drinks-selector-inner">
-            <div id="drinks-selector-title">
-                <span>Select Drinks</span>
-                <i class="fa fa-times" onclick="cancelDrinkSelector()"></i>
+    
+    
+    <div id="main-drinks-selector" class="drinks-selector" style="display: none;">
+        <div class="drinks-selector-inner">
+            <div class="drinks-selector-title">
+                <span>Select Consumed Drinks</span>
+                <i class="fa fa-times" onclick="cancelDrinkSelector('#main-drinks-selector')"></i>
             </div>
-            <input id="drinks-search" type="text" placeholder="Search for a drink" />
-            <div id="drinks-selector-content">
-                <div id="drinks-data">
+            <input class="drinks-search" type="text" placeholder="Search for a drink" />
+            <div class="drinks-selector-content">
+                <div class="drinks-data">
                 </div>
             </div>
-            <div id="drinks-selector-options">
-                <input type="button" value="Finish" onclick="updateSelectedDrinks();document.getElementById('drinks-selector').style.display = 'none';" />
-                <input type="button" value="Cancel" onclick="cancelDrinkSelector()" />
+            <div class="drinks-selector-options">
+                <input type="button" value="Finish" onclick="updateSelectedDrinks('#main-drinks-selector', '#selected-drinks');$('#main-drinks-selector').hide();" />
+                <input type="button" value="Cancel" onclick="cancelDrinkSelector('#main-drinks-selector')" />
             </div>
         </div>
     </div>
+    
+    
+    <div id="available-drinks-selector" class="drinks-selector" style="display: none;">
+        <div class="drinks-selector-inner">
+            <div class="drinks-selector-title">
+                <span>Select Available Drinks</span>
+                <i class="fa fa-times" onclick="cancelDrinkSelector('#available-drinks-selector')"></i>
+            </div>
+            <input class="drinks-search" type="text" placeholder="Search for a drink" />
+            <div class="drinks-selector-content">
+                <div class="drinks-data">
+                </div>
+            </div>
+            <div class="drinks-selector-options">
+                <input type="button" value="Finish" onclick="updateSelectedDrinks('#available-drinks-selector', '#available-drinks');$('#available-drinks-selector').hide();" />
+                <input type="button" value="Cancel" onclick="cancelDrinkSelector('#available-drinks-selector')" />
+            </div>
+        </div>
+    </div>
+    
     <div id="main" style="margin-bottom:200px;">
         <div class="wrapper">
             <div id="main-panel" class="clearfix">
@@ -67,10 +88,19 @@
                             <input id="hours" name="hours" type="number" step="0.5" value="1" />
                         </div>
                         
-                        <input onclick="openDrinkSelector();" type="button" value="Selected your consumed drinks" />
-                        
-                        <div id="selected-drinks">
+                        <div id="consumed-drinks-column" style="width:50%">
+                            <input onclick="openDrinkSelector('#main-drinks-selector');" type="button" value="Selected your consumed drinks" />
+                            
+                            <div id="selected-drinks">
+                            </div>
                         </div>
+                        <div id="available-drinks-column" style="width:50%">
+                            <input onclick="openDrinkSelector('#available-drinks-selector');" type="button" value="Selected your available drinks" />
+                            
+                            <div id="available-drinks">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
                         
                         <input style="margin-top:10px;" onclick="display_results();" type="button" value="Calculate" />
                     </form>
