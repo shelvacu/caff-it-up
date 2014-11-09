@@ -10,7 +10,7 @@ function drinkFilter(search_tags, data_tags){
 }
 $(document).ready(function(){
     $.ajax({
-        url: '/assets/data/drinks.json',
+        url: 'assets/data/drinks.json',
         dataType :"json",
         success: function(data){
             drink_data = data;
