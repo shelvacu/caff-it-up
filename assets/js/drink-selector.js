@@ -8,37 +8,44 @@ function drinkFilter(search_tags, data_tags){
     }
     return true;
 }
+
+var loaded_drink_data;
+function drinksDataCallback(data) {
+    drink_data = data;
+    var text = '';
+    var idx = 0;
+    $.each(data, function(key, entry){
+        text +=
+            '<div class="drink" data-id="'+idx+'" data-name="'+key+'" data-image="'+entry["Image"]+'" data-caff="'+entry["Caffeine"]+'" data-tags="'+entry['Tags']+'" onclick="$(this).toggleClass(\'active\')"> \
+                <!--<div class="drink-name">'+key+'</div>--> \
+                <img class="drink-image" src = "assets/images/drinks/' + entry["Image"] +'" alt=""/> \
+                <!--<div class="drink-caff">'+entry["Caffeine"]+' mg/12 fl oz</div>--> \
+                <div class="drink-notactive-msg"> \
+                    Click to select \
+                </div> \
+                <div class="drink-active-msg"> \
+                    <span class="drink-active-msg-normal"><i class="fa fa-check"></i> Selected</span> \
+                    <span class="drink-active-msg-hover"><i class="fa fa-times"></i> Click to unselect</span> \
+                </div> \
+            </div>';
+        idx++;
+    });
+    
+    loaded_drink_data = text;
+}
+
 $(document).ready(function(){
-    $.ajax({
+    /*$.ajax({
         url: 'assets/data/drinks.json',
         dataType :"json",
         success: function(data){
-            drink_data = data;
-            var text = '';
-            var idx = 0;
-            $.each(data, function(key, entry){
-                text +=
-                    '<div class="drink" data-id="'+idx+'" data-name="'+key+'" data-image="'+entry["Image"]+'" data-caff="'+entry["Caffeine"]+'" data-tags="'+entry['Tags']+'" onclick="$(this).toggleClass(\'active\')"> \
-                        <!--<div class="drink-name">'+key+'</div>--> \
-                        <img class="drink-image" src = "/assets/images/drinks/' + entry["Image"] +'" alt=""/> \
-                        <!--<div class="drink-caff">'+entry["Caffeine"]+' mg/12 fl oz</div>--> \
-                        <div class="drink-notactive-msg"> \
-                            Click to select \
-                        </div> \
-                        <div class="drink-active-msg"> \
-                            <span class="drink-active-msg-normal"><i class="fa fa-check"></i> Selected</span> \
-                            <span class="drink-active-msg-hover"><i class="fa fa-times"></i> Click to unselect</span> \
-                        </div> \
-                    </div>';
-                idx++;
-            });
-            
-            document.getElementById('drinks-data').innerHTML = text;
+            drinksDataCallback(data);
         },
         error : function(httpReq,status,exception){
             console.log(status + " " + exception);
         }
-    });
+    });*/
+    $('#drinks-data').html(loaded_drink_data);
     $('#drinks-search').keyup(function () {
         if ($('#drinks-search').val().length == 0) {
             $('.drink').show();
@@ -79,7 +86,7 @@ function updateSelectedDrinks() {
         $('#selected-drinks').append(
             '<div class="selected-drink" data-name="'+drink_name+'" data-caff="'+drink_caff+'"> \
                 <div class="selected-drink-image-wrapper"> \
-                    <img class="selected-drink-image" src="/assets/images/drinks/'+drink_image+'" alt="" /> \
+                    <img class="selected-drink-image" src="assets/images/drinks/'+drink_image+'" alt="" /> \
                 </div> \
                 <div class="selected-drink-info"> \
                     <div class="selected-drink-name">'+drink_name+'</div> \

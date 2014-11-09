@@ -11,7 +11,7 @@ function display_results() {
         var mg = pair[1];
         
         $('#results').append(
-            '<div class="result-item"> \
+            '<div class="result-item card-shadow"> \
                 <div class="result-item-date">'+dateN+'</div> \
                 <div>'+mg+' mg</div> \
             </div>'
@@ -24,5 +24,10 @@ function sumDrinkSizeMg() {
     $('.selected-drink').each(function() {
         totalMg += parseInt($(this).attr('data-caff')) * $(this).find('.selected-drink-amount-input').val();
     });
+    
+    if (totalMg == 0) {
+        totalMg = 34;
+    }
+    
     return totalMg;
 }

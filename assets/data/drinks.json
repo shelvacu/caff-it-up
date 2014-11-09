@@ -1,4 +1,4 @@
-{
+drinksDataCallback({
     "Coca Cola": {
         "Tags": "coke coca cola",
         "Caffeine": 34,
@@ -19,4 +19,4 @@
         "Caffeine": 38,
         "Image": "pepsi.png"
     }
-}
+});
