@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic" type="text/css" media="all">
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <style>
+    p {
+        margin: 20px 0;
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -29,7 +34,54 @@
             <h1 id="page-title">About</h1>
             
             <div class="card">
-                <p>This web app was created by Shelvacu, Abhishek Joshi, Thomas Nguyen, Naomi Musgrave and Matthew Lee at CodeDay Seattle (Nov 8 - Nov 9).</p>
+                <p>You need to be up for another 6 hours to get all your homework done. How can you optimize your performance? Staggering your
+                caffeine and regulating the amount of caffeine you drink will ensure that your feel alert for as long as necessary.</p>
+
+                <p>We examined three different factors.</p>
+                
+                <ol>
+                    <li>1) The half life of caffeine. This is a simple exponential decay equation, with the half life constant based upon the weight of
+                    the person in question. From our research, we found that the constant can vary dramatically. The constant is doubled if someone is
+                    taking contraceptives, or halved if they are a smoker. 
+
+                    <li>The amount of caffeine actually in someone's system. We used constant rates of absorption and elimination, based upon the models
+                    Therrien presents. The constant of elimination is smaller by two orders of magnitude. Therefore, the caffeine will be quickly absorbed
+                    into the body, its effects are felt for a very long time. This is the reason for the long, gradual tail after the sharp peak soon
+                    after the caffeine is ingested. With our tool, we repeatedly spike the caffeine intake to keep the caffeine levels in the blood from
+                    trailing below a certain threshold.</li>
+
+                    <li>The natural need to rest. Humans sleep schedules are governed by circadian rhythms that can be modeled with trigonometric equations.
+                    The main driver in circadian rhythms is endogenic; it stems from internal impulses. However, the rhythm can be shifted through exogenous
+                    factors as well. By combining the physiological and external (such as day-night shifts) factors, we get an overall representation of
+                    inclination to sleep, periodic over 24 hours.</li>
+                </ol>
+                
+                <p>
+                Combining the chemical, biologic, and impulsive factors, we can model at what point someone will need to take another dose of
+                caffeine to remain in a target range, based upon their body weight. 
+                </p>
+                
+                <p>Created by Shelvacu, Abhishek Joshi, Thomas Nguyen, Naomi Musgrave and Matthew Lee at CodeDay Seattle (Nov 8 - Nov 9).</p>
+                
+                <img src="assets/images/equations.png" alt="" />
+                
+                </hr>
+
+                <h4>WORKS CITED</h4>
+                <p>http://coffeetea.about.com/od/caffeinehealth/a/How-Much-Caffeine-Is-In-Coffee-Tea-Cola-And-Other-Drinks.htm<br/>
+                - caffeine amounts in various drinks</p>
+                <p>http://www.caffeineinformer.com/the-caffeine-database<br/>
+                - more comprehensive caffeine levels list</p>
+                <p>http://www.accessdata.fda.gov/scripts/fcn/fcnDetailNavigation.cfm?rpt=scogsListing&id=42<br/>
+                - reccommended caffeine dosed based upon body weight</p>
+                <p>https://www.math.hmc.edu/~depillis/MATH164/MATH164_StudentProjects_2003/LCROWL/CoffeeReport.doc<br/>
+                - starting point for determining necessary equations (later did not use at all, due to reliability issues with equations)</p>
+                <p>Therrien, Nicole. "Caffeine: The Drug and Your Body."<br/>
+                http://home2.fvcc.edu/~dhicketh/DiffEqns/spring07projects/NicoleTherrien/Caffeine%20paper.htm<br/>
+                - equation for caffeine amount in blood after certain amount of time</p>
+                <p>Ingre, Michael. "Validating and Extending the Three Process Model of Alertness in Airline Operations."<br/>
+                http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0108679<br/>
+                - models for endogenous and exogenous circadian rhythm</p>
             </div>
         </div>
     </div>
