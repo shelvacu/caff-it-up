@@ -1,8 +1,124 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: 'open sans', arial, sans-serif;
+    font-size: 17px;
+    line-height: 22px;
+    font-style: normal;
+    color: rgb(68, 68, 68);
+    background: white;
+}
+
+img {
+    border: 0 none;
+    height: auto;
+    max-width: 100%;
+    outline: 0 none;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e3e3e3;
+    height: 0px;
 }
 
 a {
-  color: #00B7FF;
+    color: #2E9FFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+p {
+    margin: 8px 0;
+}
+
+li {
+    margin-left: 30px;
+}
+
+/*-------------------------
+	Stuff
+--------------------------*/
+
+.fl { float: left; }
+.fr { float: right; }
+.clearfix:before,.clearfix:after {content:"";display:table;}
+.clearfix:after {clear:both;}
+.clearfix {zoom:1;}
+
+/*-------------------------
+	Layout
+--------------------------*/
+
+.wrapper {
+    max-width: 980px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+header {
+    border-bottom: 1px solid #e3e3e3;
+    padding: 15px 0;
+}
+
+#site-title {
+    font-weight: 300;
+    line-height: 24px;
+    display: block;
+}
+
+#main {
+    padding: 20px 0;
+}
+
+#main-panel {
+}
+
+#main-panel-left {
+    float: left;
+    width: 40%;
+    box-sizing: border-box;
+    padding-right: 10px;
+    border-right: 1px solid #e3e3e3;
+}
+
+#main-panel-right {
+    width: 60%;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+
+.field:before, .field:after {
+    content: '';
+    display: table;
+}
+.field:after {
+    clear: both;
+}
+.field {
+    margin-bottom: 10px;
+}
+.field label {
+    float: left;
+    width: 150px;
+    line-height: 26px;
+}
+.field input {
+    float: left;
+    border: 1px solid #d9d9d9;
+    padding: 4px 6px;
+    cursor: text;
+    min-width: 200px;
 }
