@@ -83,7 +83,7 @@ input[type=button]:hover, input[type=submit]:hover {
 
 #liability {
     font-size: 9px;
-    color: #cdcdcd;
+    color: #e3e3e3;
     line-height: 10px;
     max-width: 500px;
     display: block;
@@ -113,6 +113,11 @@ h1, h2, h3, h4, h5, h6 {
     box-sizing: border-box;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     margin-top: 20px;
+}
+
+.error-card {
+    background: #E64548 !important;
+    color: white !important;
 }
 
 .card h1, .card h2, .card h3 {
@@ -495,6 +500,7 @@ nav .item.active {
 --------------------------*/
 #results {
     position: relative;
+    margin-bottom: 40px;
 }
 
 .result-item {
