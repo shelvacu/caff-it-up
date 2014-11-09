@@ -110,13 +110,6 @@ header {
     padding: 20px 0;
 }
 
-#main .wrapper {
-    background: white;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
-
 #main-panel {
 }
 
@@ -125,7 +118,13 @@ header {
     width: 50%;
     box-sizing: border-box;
     padding-right: 10px;
-    border-right: 1px solid #e3e3e3;
+}
+
+#data-input-area {
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
 }
 
 #main-panel-right {
@@ -133,6 +132,12 @@ header {
     width: 50%;
     box-sizing: border-box;
     padding-left: 10px;
+}
+
+#main-panel-left h2, #main-panel-right h2 {
+    font-weight: 300;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .field:before, .field:after {
@@ -381,6 +386,7 @@ header {
 }
 .selected-drink-amount-label {
     float: left;
+    padding-right: 10px;
 }
 .selected-drink-amount-input {
     border: 1px solid #d9d9d9;
@@ -401,4 +407,15 @@ header {
 }
 .selected-drink-remove:hover {
     background: #f0f0f0;
+}
+
+
+/*-------------------------
+	Results
+--------------------------*/
+.result-item {
+    background: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
 }
