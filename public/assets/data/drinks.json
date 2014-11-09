@@ -1,17 +1,22 @@
 {
     "Coca Cola": {
-        "Tags": ["coca", "cola", "coke"],
-        "Caffeine": "34 mg/12 fl oz",
+        "Tags": "coke coca cola",
+        "Caffeine": 34,
         "Image": "coke-small.png"
     },
     "Mnt Dew": {
-        "Tags": ["mountain", "mnt", "dew"],
-        "Caffeine": "54 mg/12 fl oz",
+        "Tags": "mountain mt mt. mnt mnt. dew",
+        "Caffeine": 54,
         "Image": "no-image.png"
     },
     "Dr Pepper": {
-        "Tags": ["dr", "dr.", "pepper"],
-        "Caffeine": "41 mg/12 fl oz",
+        "Tags": "dr dr. doctor pepper",
+        "Caffeine": 41,
+        "Image": "no-image.png"
+    },
+    "Pepsi Cola": {
+        "Tags": "pepsi cola",
+        "Caffeine": 38,
         "Image": "no-image.png"
     }
 }

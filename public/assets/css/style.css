@@ -232,3 +232,30 @@ header {
     width: 100%;
     box-sizing: border-box;
 }
+
+#drinks-search {
+    margin-bottom: 10px;
+}
+
+.drink {
+    float: left;
+    width: 33%;
+    height: 218px;
+    border: 1px solid #e3e3e3;
+}
+.drink:hover {
+    background: #f0f0f0;
+}
+.drink-name {
+    display: block;
+    text-align: center;
+}
+.drink-image {
+    display: block;
+    max-height: 150px;
+    margin: 0 auto;
+}
+.drink-caff {
+    display: block;
+    text-align: center;
+}
