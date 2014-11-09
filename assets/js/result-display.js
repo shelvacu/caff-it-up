@@ -25,10 +25,16 @@ function display_results() {
     });
     
     var drinkSizeMg = sumDrinkSizeMg();
-    var data = inputToConsumption({age: $('#age').val(), weightLbs: $('#weight').val(), drinkSizemg: drinkSizeMg, hours: $('#hours').val(), doseTimeHrs: $('#doseTime').val()});
+    var data = inputToConsumption({
+        age: $('#age').val(),
+        weightLbs: $('#weight').val(),
+        hours: $('#hours').val(),
+        doseTimeHrs: $('#doseTime').val(),
+        drinkSizeMg: drinkSizeMg
+   });
     timeout = 0;
     
-    var drinkSizeNewSumMg = drinkSizeMg;
+    var drinkSizeNewSumMg = calculateCurrentAmount();
     $('#results').css('height', ((data.length) * 84) + 'px');
     var marginTopPx = 40;
     var topPxExtra = 0;
@@ -104,17 +110,4 @@ function overCaffMaxMg(caff, age) {
         }
     }
     return false;
-}
-
-function sumDrinkSizeMg() {
-    var totalMg = 0;
-    $('.selected-drink').each(function() {
-        totalMg += parseInt($(this).attr('data-caff')) * $(this).find('.selected-drink-amount-input').val();
-    });
-    
-    if (totalMg == 0) {
-        totalMg = 34;
-    }
-    
-    return totalMg;
 }
