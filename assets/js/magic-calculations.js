@@ -11,7 +11,8 @@ function inputToConsumption(params){
     
     var initT = params.doseTimeHrs;
     var Ao = (11.76 * params.drinkSizemg * (Math.pow(Math.E, -0.162 * initT) - Math.pow(Math.E, -11.76 * initT) ))/(11.76-0.162); // Current amount
-    var A = ((w * 0.453592) * 2); // lower bound: 2-3 mg per kg for an observable effect
+    var A = ((w * 0.453592) * 1.5); // lower bound: 2-3 mg per kg for an observable effect
+    var dosage = ((w * 0.453592) * 2);
     
     if (Ao < A) { // if current amount < lower bound, make greater
         result.push([start, Math.round((A-Ao) * 10) / 10]);
@@ -27,12 +28,12 @@ function inputToConsumption(params){
             (Math.log( Math.pow(Math.E, -0.162)-Math.pow(Math.E, -11.76) )); // next dose time (ms)
         
         if (t < 0) { console.log('inputToConsumption error: t < 0; t=' + t); return null; }
-        Ao = A + 35;
+        Ao = A + dosage;
         
         timeIdx.setTime(timeIdx.getTime()+(t*60*60*1000));
         
         var date = new Date(timeIdx.getTime());
-        result.push([date,34]);
+        result.push([date, Math.round((dosage) * 10) / 10]);
     }
     return result;
 }
