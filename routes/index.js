@@ -4,8 +4,8 @@
 
 module.exports = function(app) {
 	app.get('/', function(req, res) {
-		res.render('index', {
-			title: 'Caff-It-Up',
+		res.render('test', {
+			title: 'Express',
 			body: "Henry is the coolest",
 			seq: ["henry", "is", "pretty", "great"]
 		});
