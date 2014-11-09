@@ -1,7 +1,7 @@
 //Input: object with various params, eg
 //{age:17,weightLbs:150,drinkSizemg:54,hours:4}
 //required: weightLbs hours
-
+//
 //Output: Array of times and milligrams, eg
 //[[Date, 55],[Date, 55]]
 function inputToConsumption(params){
