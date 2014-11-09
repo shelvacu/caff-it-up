@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="chat">
+<head>
+	<title>Chat</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<script src="/socket.io/socket.io.js"></script>	
+	<script type="text/javascript" src="/js_resources/angular.min.js"></script>
+	<script type="text/javascript" src="/js/chat.js"></script>
+	<style type="text/css">
+		html, body {
+			height: 100%;
+		}
+		.user_feed-row {
+			padding-top: 10px;
+
+		}
+		.chat-form {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
+		.chat-form-container {
+			padding-top: 25px;
+			padding-bottom: 25px;
+
+		}
+		.chat-form-container-input {
+			width: 85%;
+			float: left;
+		}
+		.chat-form-container-submit {
+			float: left;
+		}
+		.chat-users > .row, .chat-feed > .row {
+			margin-right: 4px;
+		}
+		span.space {
+			margin-right: 1em;
+		}
+		.message-container-content {
+			width: 100%;
+			word-wrap:break-word;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="user_feed-row row" >
+			<div class="chat-users col-lg-3" ng-controller="chatUsers">
+				<div class="row">
+					<h2>Users</h2>
+				</div>
+				<div class="row">
+					<ul class="chat-users-list list-group">
+						<li class= "list-group-item" ng-repeat="user in users">
+							<div class="user-container">
+								<p>
+									<span class="user-container-alias text-primary">{{ user.alias }} - </span>
+									<span class="user-container-name">{{ user.name }}</span><br>
+									<span class="user-container-email">{{ user.email }}</span>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="chat-feed col-lg-6" ng-controller="chatFeed">
+				<div class="row">
+					<h2>Messages</h2>
+				</div>
+				<div class="row">
+					<ul class="chat-feed-list list-group">
+						<li class="list-group-item" ng-repeat="message in feed">
+							<div class="message-container">
+								<p>
+									<span class="message-container-sender text-success">{{ message.sender.alias }}</span>
+									<span class="space"></span>
+									<span class="message-container-content">{{ message.content }}</span>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="gist-feed col-lg-3" >
+				<div class="row">
+					<h2>Gists</h2>
+				</div>
+				<div class="row">
+					<!-- <ul class="chat-feed-list list-group">
+						<li class="list-group-item" ng-repeat="message in feed">
+							<div class="message-container">
+								<p>
+									<span class="message-container-sender text-success">{{ message.sender.alias }}</span>
+									<span class="space"></span>
+									<span class="message-container-content">{{ message.content }}</span>
+								</p>
+							</div>
+						</li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<form class="chat-form" ng-controller="chatInput" name="chatInputForm" onsubmit="return false;">
+		<div class="chat-form-container container">
+			<div class="row">
+				<div class="col-lg-9">
+					<input class="chat-form-container-input form-control" ng-model="text" name="text" required>
+					<button class="chat-form-container-submit btn btn-primary" ng-disabled="!chatInputForm.$valid" ng-click="update()">Send</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
