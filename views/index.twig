@@ -48,7 +48,7 @@
                         </div>
                         
                         <div class="field">
-                            <label for="weight">Your weight (kg):</label>
+                            <label for="weight">Your weight (lbs):</label>
                             <input id="weight" name="weight" type="number" />
                         </div>
                         
@@ -61,9 +61,13 @@
                         
                         <div id="selected-drinks">
                         </div>
+                        
+                        <input style="margin-top:10px;" onclick="display_results();" type="button" value="Calculate" />
                     </form>
                 </div>
                 <div id="main-panel-right">
+                    <div id="results">
+                    </div>
                 </div>
             </div>
         </div>

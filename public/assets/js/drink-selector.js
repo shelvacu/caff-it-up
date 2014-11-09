@@ -77,7 +77,7 @@ function updateSelectedDrinks() {
         var drink_id = $(this).attr('data-id');
         
         $('#selected-drinks').append(
-            '<div class="selected-drink"> \
+            '<div class="selected-drink" data-name="'+drink_name+'" data-caff="'+drink_caff+'"> \
                 <div class="selected-drink-image-wrapper"> \
                     <img class="selected-drink-image" src="/assets/images/drinks/'+drink_image+'" alt="" /> \
                 </div> \
