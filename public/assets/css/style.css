@@ -314,10 +314,12 @@ header {
 	Selected Drinks
 --------------------------*/
 .selected-drink {
-    height: 50px;
+    height: 72px;
     margin-top: 10px;
     padding: 10px;
     border-bottom: 1px solid #e3e3e3;
+    width: 100%;
+    box-sizing: border-box;
 }
 .selected-drink:first-child {
     border-top: 1px solid #e3e3e3;
@@ -342,4 +344,14 @@ header {
 .selected-drink-name {
 }
 .selected-drink-caff {
+}
+.selected-drink-remove {
+    float: right;
+    padding: 5px;
+    width: 32px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.selected-drink-remove:hover {
+    background: #f0f0f0;
 }
