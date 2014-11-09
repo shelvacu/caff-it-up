@@ -20,8 +20,8 @@ drinksDataCallback({
         "Image": "pepsi.png"
     },
     "Barq's Root Beer": {
-	"Tags": "root beer banq bang banq's bang's barg barq barg's barq's",
-	"Caffeine": 22,
-	"Image": "no-image.png"
+        "Tags": "root beer barq's barq barqs",
+        "Caffeine": 22,
+        "Image": "barqs.png"
     }
 });
