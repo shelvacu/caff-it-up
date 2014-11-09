@@ -48,25 +48,6 @@
         </div>
     </div>
     
-    
-    <div id="available-drinks-selector" class="drinks-selector" style="display: none;">
-        <div class="drinks-selector-inner">
-            <div class="drinks-selector-title">
-                <span>Select Available Drinks</span>
-                <i class="fa fa-times" onclick="cancelDrinkSelector('#available-drinks-selector')"></i>
-            </div>
-            <input class="drinks-search" type="text" placeholder="Search for a drink" />
-            <div class="drinks-selector-content">
-                <div class="drinks-data">
-                </div>
-            </div>
-            <div class="drinks-selector-options">
-                <input type="button" value="Finish" onclick="updateSelectedDrinks('#available-drinks-selector', '#available-drinks');$('#available-drinks-selector').hide();" />
-                <input type="button" value="Cancel" onclick="cancelDrinkSelector('#available-drinks-selector')" />
-            </div>
-        </div>
-    </div>
-    
     <div id="main" style="margin-bottom:200px;">
         <div class="wrapper">
             <div id="main-panel" class="clearfix">
@@ -88,16 +69,15 @@
                             <input id="hours" name="hours" type="number" step="0.5" value="1" />
                         </div>
                         
-                        <div id="consumed-drinks-column" style="width:50%">
+                        <div class="field">
+                            <label for="doseTime">Time since last dose (hours):</label>
+                            <input id="doseTime" name="doseTime" type="number" step="0.5" />
+                        </div>
+                        
+                        <div style="width:50%">
                             <input onclick="openDrinkSelector('#main-drinks-selector');" type="button" value="Selected your consumed drinks" />
                             
                             <div id="selected-drinks">
-                            </div>
-                        </div>
-                        <div id="available-drinks-column" style="width:50%">
-                            <input onclick="openDrinkSelector('#available-drinks-selector');" type="button" value="Selected your available drinks" />
-                            
-                            <div id="available-drinks">
                             </div>
                         </div>
                         <div class="clearfix"></div>

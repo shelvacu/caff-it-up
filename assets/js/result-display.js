@@ -25,8 +25,7 @@ function display_results() {
     });
     
     var drinkSizeMg = sumDrinkSizeMg();
-    
-    var data = inputToConsumption({age: $('#age').val(), weightLbs: $('#weight').val(), drinkSizemg: drinkSizeMg, hours: $('#hours').val()});
+    var data = inputToConsumption({age: $('#age').val(), weightLbs: $('#weight').val(), drinkSizemg: drinkSizeMg, hours: $('#hours').val(), doseTimeHrs: $('#doseTime').val()});
     timeout = 0;
     
     var drinkSizeNewSumMg = drinkSizeMg;
@@ -46,7 +45,7 @@ function display_results() {
         if (!alreadyWarned && $('#age').val() && overCaffMaxMg(drinkSizeNewSumMg, parseInt($('#age').val()))) {
             var $warning_item = $(
                     '<div class="result-item error-card" style="position:absolute;top:'+topPx+'px;width:100%;margin-top:'+marginTopPx+'px;opacity:0;"> \
-                        <div><b>Warning</b> Any more will exceed the maximum recommended daily dosage amount.</div> \
+                        <div><b>Warning</b> Any more will exceed the max recommended daily dosage.</div> \
                     </div>');
             $('#results').append($warning_item);
             
@@ -89,11 +88,6 @@ function display_results() {
 function overCaffMaxMg(caff, age) {
     if (age > 12) {
         if (caff > 400) {
-            return true;
-        }
-        
-        // 1 lb = 0.453592 kg
-        if ($('#weight').val() && caff > ((parseInt($('#weight').val()) * 0.453592) * 2.5)) {
             return true;
         }
     } else if (age > 9) {
