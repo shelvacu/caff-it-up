@@ -309,3 +309,49 @@ header {
 .drink:hover .drink-active-msg-hover {
     display: block;
 }
+
+/*-------------------------
+	Selected Drinks
+--------------------------*/
+.selected-drink {
+    height: 72px;
+    margin-top: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #e3e3e3;
+    width: 100%;
+    box-sizing: border-box;
+}
+.selected-drink:first-child {
+    border-top: 1px solid #e3e3e3;
+}
+.selected-drink:before, .selected-drink:active {
+    content: '';
+    display: table;
+}
+.selected-drink:after {
+    clear: both;
+}
+.selected-drink-image-wrapper, .selected-drink-image {
+    max-height: 50px;
+}
+.selected-drink-image-wrapper {
+    float: left;
+}
+.selected-drink-info {
+    float: left;
+    padding-left: 10px;
+}
+.selected-drink-name {
+}
+.selected-drink-caff {
+}
+.selected-drink-remove {
+    float: right;
+    padding: 5px;
+    width: 32px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.selected-drink-remove:hover {
+    background: #f0f0f0;
+}
