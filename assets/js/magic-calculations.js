@@ -65,7 +65,7 @@ function calculateCurrentAmount() {
         A += (11.76 * e1_caff * (Math.pow(Math.E, -0.162 * e1_hours) - Math.pow(Math.E, -11.76 * e1_hours) ))/(11.76-0.162);
     }
     
-    if (A == 0) {
+    if (A == 0 || isNaN(A)) {
         A = 1;
     }
     return A;

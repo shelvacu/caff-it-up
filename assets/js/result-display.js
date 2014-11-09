@@ -30,7 +30,7 @@ function display_results() {
         weightLbs: $('#weight').val(),
         hours: $('#hours').val(),
         drinkSizeMg: drinkSizeMg
-   });
+    });
     timeout = 0;
     
     var drinkSizeNewSumMg = calculateCurrentAmount();
