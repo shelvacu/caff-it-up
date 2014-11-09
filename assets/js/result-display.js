@@ -11,7 +11,7 @@ function display_results() {
         var mg = pair[1];
         
         $('#results').append(
-            '<div class="result-item card-shadow"> \
+            '<div class="result-item"> \
                 <div class="result-item-date">'+dateN+'</div> \
                 <div>'+mg+' mg</div> \
             </div>'

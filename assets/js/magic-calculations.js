@@ -1,9 +1,9 @@
-//Input: object with various params, eg
-//{age:17,weightLbs:150,drinkSizemg:54,hours:4}
-//required: weightLbs hours
+// Input: object with various params, eg
+// {age:17,weightLbs:150,drinkSizemg:54,hours:4}
+// Required: age, weightLbs, drinkSizemg, hours
 //
-//Output: Array of times and milligrams, eg
-//[[Date, 55],[Date, 55]]
+// Output: Array of times and milligrams, eg
+// [[Date, 55],[Date, 55]]
 function inputToConsumption(params){ 
     var start = new Date()
     var res = [[start, 34]] // 34 - One coke
