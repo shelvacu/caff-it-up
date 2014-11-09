@@ -1,6 +1,6 @@
 //Input: object with various params, eg
 //{age:17,weightLbs:150,drinkSizemg:54}
-//required: weightLbs hours
+//required: weightLbs hours drinkSizemg
 
 //Output: Array of times and milligrams, eg
 //[[Date, 55],[Date, 55]]
