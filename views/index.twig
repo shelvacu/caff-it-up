@@ -11,6 +11,8 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="/assets/js/drink-selector.js"></script>
+    <script type="text/javascript" src="/assets/js/magic-calculations.js"></script>
+    <script type="text/javascript" src="/assets/js/result-display.js"></script>
 </head>
 <body>
     <header>
@@ -24,8 +26,8 @@
                 <span>Select Drinks</span>
                 <i class="fa fa-times" onclick="cancelDrinkSelector()"></i>
             </div>
+            <input id="drinks-search" type="text" placeholder="Search for a drink" />
             <div id="drinks-selector-content">
-                <input id="drinks-search" type="text" placeholder="Search for a drink" />
                 <div id="drinks-data">
                 </div>
             </div>
@@ -68,7 +70,9 @@
     </div>
     <footer>
         <div class="wrapper">
-            Licensed under <a href="http://opensource.org/licenses/MIT">MIT License</a>. Source code available on <a href="https://github.com/shelvacu/caff-it-up">Github</a>.
+            <p>Licensed under <a href="http://opensource.org/licenses/MIT">MIT License</a>.
+            Source code available on <a href="https://github.com/shelvacu/caff-it-up">Github</a>.</p>
+            <p><small id="liability">Caff-It-Up and its creators are not responsible for any maladies or adversities the user<br/>develops from using this web application's caffeine consumption suggestions.</small></p>
         </div>
     </footer>
 </body>

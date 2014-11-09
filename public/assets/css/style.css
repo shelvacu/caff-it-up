@@ -75,6 +75,14 @@ input[type=button]:hover, input[type=submit]:hover {
     background: #fafafa;
 }
 
+#liability {
+    font-size: 9px;
+    color: #cdcdcd;
+    line-height: 10px;
+    max-width: 500px;
+    display: block;
+}
+
 /*-------------------------
 	Layout
 --------------------------*/
@@ -149,7 +157,7 @@ header {
     min-width: 200px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 860px) {
     #main-panel-left {
         float: none;
         width: 100%;
@@ -216,7 +224,7 @@ header {
     padding: 20px;
     padding-bottom: 20px;
     min-height: 200px;
-    max-height: 300px;
+    max-height: 350px;
     overflow-y: auto;
 }
 
@@ -224,7 +232,6 @@ header {
 	/* background: #E6ECF1; */
     padding: 15px 20px;
     border-top: 1px solid #e1e8ed;
-    margin-top: 20px;
 }
 
 #drinks-selector input[type=button], #drinks-selector input[type=submit] {
@@ -249,7 +256,7 @@ header {
 }
 
 #drinks-search {
-    margin-bottom: 10px;
+    border-bottom: 1px solid #e3e3e3;
 }
 
 .drink {
@@ -330,17 +337,18 @@ header {
 	Selected Drinks
 --------------------------*/
 .selected-drink {
-    height: 72px;
     margin-top: 10px;
     padding: 10px;
     border-bottom: 1px solid #e3e3e3;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    max-width: 370px;
 }
 .selected-drink:first-child {
     border-top: 1px solid #e3e3e3;
 }
-.selected-drink:before, .selected-drink:active {
+.selected-drink:before, .selected-drink:after {
     content: '';
     display: table;
 }
@@ -361,12 +369,34 @@ header {
 }
 .selected-drink-caff {
 }
+.selected-drink-amount {
+}
+.selected-drink-amount:before, .selected-drink-amount:after {
+    content: '';
+    display: table;
+}
+.selected-drink-amount:after {
+    clear: both;
+}
+.selected-drink-amount-label {
+    float: left;
+}
+.selected-drink-amount-input {
+    border: 1px solid #d9d9d9;
+    padding: 4px 6px;
+    cursor: text;
+    width: 75px;
+    display: block;
+    float: left;
+}
 .selected-drink-remove {
-    float: right;
     padding: 5px;
     width: 32px;
     box-sizing: border-box;
     text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .selected-drink-remove:hover {
     background: #f0f0f0;
