@@ -7,16 +7,16 @@
     "Mnt Dew": {
         "Tags": "mountain mt mt. mnt mnt. dew",
         "Caffeine": 54,
-        "Image": "no-image.png"
+        "Image": "mountain-dew.png"
     },
     "Dr Pepper": {
         "Tags": "dr dr. doctor pepper",
         "Caffeine": 41,
-        "Image": "no-image.png"
+        "Image": "dr-pepper.gif"
     },
     "Pepsi Cola": {
         "Tags": "pepsi cola",
         "Caffeine": 38,
-        "Image": "no-image.png"
+        "Image": "pepsi.png"
     }
 }
