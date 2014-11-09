@@ -24,7 +24,7 @@ function display_results() {
         timeout += 80;
     });
     
-    var drinkSizeMg = sumDrinkSizeMg();
+    var drinkSizeMg = calculateCurrentAmount();
     var data = inputToConsumption({
         age: $('#age').val(),
         weightLbs: $('#weight').val(),
@@ -47,7 +47,7 @@ function display_results() {
         var topPx = 84 * i + topPxExtra;
         drinkSizeNewSumMg += mg;
         
-        if (!alreadyWarned && $('#age').val() && overCaffMaxMg(drinkSizeNewSumMg, parseInt($('#age').val()))) {
+        /*if (!alreadyWarned && $('#age').val() && overCaffMaxMg(drinkSizeNewSumMg, parseInt($('#age').val()))) {
             var $warning_item = $(
                     '<div class="result-item error-card" style="position:absolute;top:'+topPx+'px;width:100%;margin-top:'+marginTopPx+'px;opacity:0;"> \
                         <div><b>Warning</b> Any more will exceed the max recommended daily dosage.</div> \
@@ -67,7 +67,7 @@ function display_results() {
             topPxExtra += 84;
             topPx = 84 * i + topPxExtra;
             alreadyWarned = true;
-        }
+        }*/
         
         var $result_item = $(
             '<div class="result-item" style="position:absolute;top:'+topPx+'px;width:100%;margin-top:'+marginTopPx+'px;opacity:0;"> \
