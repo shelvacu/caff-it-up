@@ -74,6 +74,23 @@ function cancelDrinkSelector() {
     $('.drink.active').removeClass('active');
 }
 
+function removeSelectedDrink(drink_id, $selected_drink) {
+    $('.drink[data-id='+drink_id+']').removeAttr('active').removeClass('active');
+    
+    $selected_drink.find('.selected-drink-inner').animate({
+        "margin-left": "-25px",
+        "opacity": "0",
+    }, 100);
+    setTimeout(function(){
+        $selected_drink.animate({
+            "height": "0",
+        }, 50);
+    }, 100);
+    setTimeout(function(){
+        $selected_drink.remove();
+    }, 150);
+}
+
 function updateSelectedDrinks() {
     $('#selected-drinks').html('');
     $('.drink.active').each(function() {
@@ -85,18 +102,20 @@ function updateSelectedDrinks() {
         
         $('#selected-drinks').append(
             '<div class="selected-drink" data-name="'+drink_name+'" data-caff="'+drink_caff+'"> \
-                <div class="selected-drink-image-wrapper"> \
-                    <img class="selected-drink-image" src="assets/images/drinks/'+drink_image+'" alt="" /> \
-                </div> \
-                <div class="selected-drink-info"> \
-                    <div class="selected-drink-name">'+drink_name+'</div> \
-                    <div class="selected-drink-caff">'+drink_caff+' mg/12 fl oz</div> \
-                    <div class="selected-drink-amount"> \
-                        <div class="selected-drink-amount-label">Amount:</div> \
-                        <input class="selected-drink-amount-input" value="1" min="1" type="number" pattern="\d*" /> \
+                <div class="selected-drink-inner"> \
+                    <div class="selected-drink-image-wrapper"> \
+                        <img class="selected-drink-image" src="assets/images/drinks/'+drink_image+'" alt="" /> \
                     </div> \
+                    <div class="selected-drink-info"> \
+                        <div class="selected-drink-name">'+drink_name+'</div> \
+                        <div class="selected-drink-caff">'+drink_caff+' mg/12 fl oz</div> \
+                        <div class="selected-drink-amount"> \
+                            <div class="selected-drink-amount-label">Amount:</div> \
+                            <input class="selected-drink-amount-input" value="1" min="1" type="number" pattern="\d*" /> \
+                        </div> \
+                    </div> \
+                    <div onclick="removeSelectedDrink('+drink_id+', $(this).closest(\'.selected-drink\'));" class="selected-drink-remove" title="Remove this selected drink"><i class="fa fa-times"></i></div> \
                 </div> \
-                <div onclick="$(\'.drink[data-id='+drink_id+']\').removeAttr(\'active\').removeClass(\'active\');$(this).closest(\'.selected-drink\').remove();" class="selected-drink-remove" title="Remove this selected drink"><i class="fa fa-times"></i></div> \
             </div>'
         );
     });
