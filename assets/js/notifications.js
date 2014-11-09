@@ -30,7 +30,7 @@ notif.checkNewAlertInterval = setInterval(function(){
 	    notif.beepin = true;
 	    notif.beeped = false;
 	    $.notify("You need to drink "+ob.whatToDrink+".",{autoHide:false,clickToHide:true});
-	    $('.notify-wrapper').click(notif.shutup);
+	    $('.notify-wrapper').on('click',notif.shutup);
 	    ob.done = true;
 	}
     });
