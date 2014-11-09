@@ -29,7 +29,6 @@ function display_results() {
         age: $('#age').val(),
         weightLbs: $('#weight').val(),
         hours: $('#hours').val(),
-        doseTimeHrs: $('#doseTime').val(),
         drinkSizeMg: drinkSizeMg
    });
     timeout = 0;

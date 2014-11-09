@@ -1,6 +1,6 @@
 // Input: object with various params, eg
-// {age:17,weightLbs:150,drinkSizemg:54,hours:4,doseTimeHrs:2}
-// Required: age, weightLbs, drinkSizemg, hours, doseTimeHrs (time since first dose)
+// {age:17,weightLbs:150,drinkSizemg:54,hours:4}
+// Required: age, weightLbs, drinkSizemg, hours (time since first dose)
 //
 // Output: Array of times and milligrams, eg
 // [[Date, 55],[Date, 55]]
@@ -9,7 +9,6 @@ function inputToConsumption(params){
     var result = [];
     var w = params.weightLbs;
     
-    var initT = params.doseTimeHrs;
     var Ao = params.drinkSizeMg; // Current amount
     var A = ((w * 0.453592) * 1.5); // lower bound: 2-3 mg per kg for an observable effect
     var dosage = ((w * 0.453592) * 2);
