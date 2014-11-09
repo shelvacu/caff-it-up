@@ -242,9 +242,12 @@ header {
     width: 33%;
     height: 218px;
     border: 1px solid #e3e3e3;
+    position: relative;
+    padding-bottom: 20px;
+    cursor: pointer;
 }
 .drink:hover {
-    background: #f0f0f0;
+    border-color: #047BF9;
 }
 .drink-name {
     display: block;
@@ -258,4 +261,51 @@ header {
 .drink-caff {
     display: block;
     text-align: center;
+}
+.drink.active {
+    border-color: #047BF9;
+}
+
+.drink-notactive-msg, .drink-active-msg {
+    background: #047BF9;
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    color: white;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.drink:not(.active):not(:hover) .drink-notactive-msg {
+    display: none;
+}
+.drink:not(.active):hover .drink-notactive-msg {
+    display: block;
+}
+.drink.active .drink-notactive-msg {
+    display: none;
+}
+
+.drink:not(.active) .drink-active-msg {
+    display: none;
+}
+.drink.active .drink-active-msg {
+    display: block;
+}
+.drink:not(:hover) .drink-active-msg-normal {
+    display: block;
+}
+.drink:not(:hover) .drink-active-msg-hover {
+    display: none;
+}
+.drink:hover .drink-active-msg-normal {
+    display: none;
+}
+.drink:hover .drink-active-msg-hover {
+    display: block;
 }
